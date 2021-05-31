@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/gif/png" href="{{url_for('static',filename='images/icon.png')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/styles.css') }}">
+    <meta charset="UTF-8">
+    <title>SugarFree | Login</title>
+</head>
+<body>
+    <!-- main div -->
+    <div id="main"> 
+        <h2 id="form-title">Login Form</h2>
+        <h3 id="main-header">Choose Account Type</h2>
+        <!-- div to select doctor/patient option -->
+        <div id="option-select">
+            <div id="doctor">
+                <img id="doctor-img" src="{{url_for('static',filename='images/doctor-img.jpg')}}" alt="doctor image" height="180px" width="140px">
+            <!-- </div>
+            <div id="patient"> -->
+                <img id="patient-img" src="{{url_for('static',filename='images/patient-img.png')}}" alt="" height="180px" width="140px">
+            </div>
+        </div>
+        <!-- div for login form -->
+        <div id=login-form>
+            <form method="POST">
+                <div class="form-illustration"></div>
+                <div class="form-group"><input id="email" type="email" name="email" placeholder="Email"></div>
+                <div class="form-group"><input id="password" type="password" name="password" placeholder="Password"></div>
+                <a href="#" class="forgot-pswd">Forgot password?</a><br>
+                <button class="btn-primary" type="submit">Log In</button>
+                <button class="btn-primary" type="reset">Reset</button>
+                <hr>
+                <button class="btn-primary" id="register-btn">Register Here</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
