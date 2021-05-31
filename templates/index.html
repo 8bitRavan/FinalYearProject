@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/gif/png" href="{{url_for('static',filename='images/icon.png')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/styles.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>SugarFree | Login</title>
 </head>
 <body>
     <!-- main div -->
-    <div id="main"> 
-        <h2 id="form-title">Login Form</h2>
-        <h3 id="main-header">Choose Account Type</h2>
+    <div class="container center-block">
+    <div class="col-sm-4"></div>
+        <div class="col-sm-4 well">
+        <h2 class="text-center"><em>Login Form</em></h2>
+        <h5 class="text-center">Choose Account Type</h5>
         <!-- div to select doctor/patient option -->
-        <div id="option-select">
-            <div id="doctor">
+        
+        
+            <div class="text-center">
                 <img id="doctor-img" src="{{url_for('static',filename='images/doctor-img.jpg')}}" alt="doctor image" height="180px" width="140px">
-            <!-- </div>
-            <div id="patient"> -->
                 <img id="patient-img" src="{{url_for('static',filename='images/patient-img.png')}}" alt="" height="180px" width="140px">
             </div>
-        </div>
+        <br><br>
         <!-- div for login form -->
         <div id=login-form>
             <form method="POST">
                 <div class="form-illustration"></div>
-                <div class="form-group"><input id="email" type="email" name="email" placeholder="Email"></div>
-                <div class="form-group"><input id="password" type="password" name="password" placeholder="Password"></div>
-                <a href="#" class="forgot-pswd">Forgot password?</a><br>
-                <button class="btn-primary" type="submit">Log In</button>
-                <button class="btn-primary" type="reset">Reset</button>
-                <hr>
-                <button class="btn-primary" id="register-btn">Register Here</button>
+                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+                <a href="#" class="text-end">Forgot password?</a><br><br>
+                <button class="btn btn-success btn-block" type="submit">Log In</button>
+                <button class="btn btn-warning btn-block" type="reset">Reset</button>
+                <hr style="height: 2px;border: none;background-color: #aaa;">
+                <button class="btn btn-primary btn-block" id="register-btn">Not a Member? Register Here</button>
             </form>
         </div>
+        <div class="col-sm-4"></div>
     </div>
 
 </body>
