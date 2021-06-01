@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/gif/png" href="{{url_for('static',filename='images/icon.png')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/styles.css') }}">
+    <!-- <link rel="icon" type="image/gif/png" href="{{url_for('static',filename='images/icon.png')}}"> -->
+    <link rel="icon" type="image/gif/png" href="/static/images/icon.png">
+    <link rel="stylesheet" href="/static/css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.imgcheckbox.js"></script>
+    <script src="/static/js/script.js"></script>
     <meta charset="UTF-8">
     <title>SugarFree | Login</title>
 </head>
@@ -21,8 +24,16 @@
         
         
             <div class="text-center">
-                <img id="doctor-img" src="{{url_for('static',filename='images/doctor-img.jpg')}}" alt="doctor image" height="180px" width="140px">
-                <img id="patient-img" src="{{url_for('static',filename='images/patient-img.png')}}" alt="" height="180px" width="140px">
+                <!-- <img id="doctor-img" src="{{url_for('static',filename='images/doctor-img.jpg')}}" alt="doctor image" height="180px" width="140px">
+                <img id="patient-img" src="{{url_for('static',filename='images/patient-img.png')}}" alt="" height="180px" width="140px"> -->
+                <img name="doctor-img" id="doctor-img" src="/static/images/doctor-img.jpg" 
+                    alt="doctor image" height="180px" width="140px" onclick="$('img').imgCheckbox({ 'graySelected': false,'radio':true,'canDeselect':true });">
+                <img name="patient-img" id="patient-img" src="/static/images/patient-img.png" 
+                    alt="" height="180px" width="140px" onclick="$('img').imgCheckbox({ 'graySelected': false,'radio':true,'canDeselect':true });">
+                <div class="text-center">
+                    <span class="col-sm-6">Doctor</span>
+                    <span class="col-sm-6">Patient</span>
+                </div>
             </div>
         <br><br>
         <!-- div for login form -->
