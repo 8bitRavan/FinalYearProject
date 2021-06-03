@@ -24,31 +24,32 @@ def index():
     return (x)
 
 
-@app.route("/login")
+@app.route("/login",methods=['GET','POST'])
 def login():
     msg = ''
-    if 'email' in request.form and 'password' in request.form:
-        email = request.form['email']
-        password = request.form['password']
+    result = request.form
+    if request.method == 'POST' and 'email' in result and 'password' in result and ('doctor-img' in result or 'patient-img' in result):
+        if 'doctor-img' in result:
+            doctor = 1
+        else:
+            doctor = 0
+        email = result['email']
+        password = result['password']
         cur = mysql.connection.cursor() #changing
         # cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cur.execute('SELECT * FROM patient_accounts WHERE email = %s AND password = %s', (email, password,))
+        cur.execute('SELECT * FROM accounts WHERE email = %s AND password = %s AND doctor = %s', (email, password,doctor,))
         account = cur.fetchone() #check this, try to replace with TOP 1 in query
-        print(account)
         if account:
             session['loggedin'] = True
-            session['id'] = account['id']
-            session['email'] = account['email']
-            msg = 'Logged in successfully !'
+            session['id'] = account[0]
+            session['email'] = account[2]
+            msg = 'Logged in successfully !\nWelcome, '+account[1]
+            if doctor:
+                msg = msg[:34]+'Dr. '+msg[34:]
             return render_template('login.html', msg=msg)  # return to patient/doctor .html
         else:
-            msg = 'Incorrect username / password !'
+            msg = 'Incorrect username / password / Account Type !'
     return render_template('login.html', msg=msg)
-
-
-@app.route("/result", methods=['GET','POST'])
-def result():
-    return ('nothing')
 
 
 @app.route('/logout')
@@ -62,14 +63,20 @@ def logout():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     msg = ''
-    if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form and 'morbidities' in request.form:
-        name = request.form['name']
-        password = request.form['password']
-        email = request.form['email']
-        morbidities = request.form['morbidities']
+    result = request.form
+    if request.method == 'POST' and (result['password']!=result['rePassword']):
+        msg = 'Password did not match'
+    elif request.method == 'POST' and 'name' in result and 'password' in result and 'email' in result and 'morbidities' in result and ('doctor-img' in result or 'patient-img' in result):
+        doctor = 0
+        if 'doctor-img' in result:
+            doctor = 1
+        name = result['name']
+        password = result['password']
+        email = result['email']
+        morbidities = result['morbidities']
         cur = mysql.connection.cursor()
         # cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cur.execute('SELECT * FROM patient_accounts WHERE email = %s', (email))
+        cur.execute('SELECT * FROM accounts WHERE email = %s', (email,))
         account = cur.fetchone() #check, replace with TOP 1 in query if needed
         if account:
             msg = 'Account already exists with this Email ID !'
@@ -78,8 +85,8 @@ def register():
         elif not re.match(r'[A-Za-z]+', name):
             msg = 'Username must contain only alphabets !'
         else:
-            cur.execute('INSERT INTO patient_accounts VALUES (NULL, %s, %s, %s, %s)',
-                           (name, email, password, morbidities))
+            cur.execute('INSERT INTO accounts VALUES (NULL, %s, %s, %s, %s, %s)',
+                           (name, doctor, email, password, morbidities))
             mysql.connection.commit()
             cur.close()
             msg = 'You have successfully registered !'
