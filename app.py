@@ -94,3 +94,6 @@ def register():
         msg = 'Please fill out the form !'
     return render_template('registration.html', msg=msg)
 
+if __name__ == "__main__":
+    app.run(debug=False)
+
