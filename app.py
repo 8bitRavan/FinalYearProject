@@ -20,8 +20,7 @@ mysql = MySQL(app)
 
 @app.route("/")
 def index():
-    x = "<a href='/login'>Click</a>"
-    return (x)
+    return render_template('index.html')
 
 
 @app.route("/login",methods=['GET','POST'])
@@ -94,6 +93,25 @@ def register():
         msg = 'Please fill out the form !'
     return render_template('registration.html', msg=msg)
 
+
+@app.route("/about",methods=['GET', 'POST'])
+def about():
+    return render_template('about.html')
+
+
+@app.route("/contact",methods=['GET', 'POST'])
+def contact():
+    return render_template('contact.html')
+
+@app.route("/search",methods=['GET', 'POST'])
+def search():
+    msg = 'Search result empty'
+    if request.method == 'GET':
+        result = '"'+request.args.get('query')+'"'
+        msg = "You have searched for "+ result
+    return render_template('search.html',msg=msg)
+
 if __name__ == "__main__":
     app.run(debug=False)
+
 
