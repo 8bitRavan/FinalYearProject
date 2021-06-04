@@ -93,6 +93,7 @@ def register():
         msg = 'Please fill out the form !'
     return render_template('registration.html', msg=msg)
 
+
 @app.route("/about",methods=['GET', 'POST'])
 def about():
     return render_template('about.html')
@@ -109,4 +110,8 @@ def search():
         result = '"'+request.args.get('query')+'"'
         msg = "You have searched for "+ result
     return render_template('search.html',msg=msg)
+
+if __name__ == "__main__":
+    app.run(debug=False)
+
 
