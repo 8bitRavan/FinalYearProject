@@ -9,8 +9,13 @@
     text-align: center;
   }
 
+  .content::after {
+    width: 95%;
+  }
+  
   .content-left{
     font-size: medium;
+    
   }
   .content-left h1{
     font-size:x-large;
