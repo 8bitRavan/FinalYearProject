@@ -6,12 +6,13 @@ import os
 
 secKey = os.environ['SECKEY']
 mysqlPass = os.environ['MYSQLPswd']
+hostName = os.environ['HostName']
 app = Flask(__name__)
 
 app.secret_key = secKey
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_HOST'] = hostName
+app.config['MYSQL_USER'] = 'admin'
 app.config['MYSQL_PASSWORD'] = mysqlPass
 app.config['MYSQL_DB'] = 'userdb'
 
