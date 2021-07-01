@@ -4,9 +4,9 @@ from flask_mysqldb import MySQL
 import re
 import os
 
-secKey = os.environ['SECKEY']
-mysqlPass = os.environ['MYSQLPswd']
-hostName = os.environ['HostName']
+secKey = os.environ.get('SECKEY', None)
+mysqlPass = os.environ.get('MYSQLPswd', None)
+hostName = os.environ.get('HostName', None)
 app = Flask(__name__)
 
 app.secret_key = secKey
