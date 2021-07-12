@@ -46,7 +46,8 @@ def login():
             msg = 'Logged in successfully !\nWelcome, '+account[1]
             if doctor:
                 msg = msg[:34]+'Dr. '+msg[34:]
-            return render_template('login.html', msg=msg)  # return to patient/doctor .html
+                return render_template('doctor.html', msg=msg)
+            return render_template('patient.html', msg=msg)  # return to patient/doctor .html
         else:
             msg = 'Incorrect username / password / Account Type !'
     return render_template('login.html', msg=msg)
@@ -111,6 +112,10 @@ def search():
         result = '"'+request.args.get('query')+'"'
         msg = "You have searched for "+ result
     return render_template('search.html',msg=msg)
+
+@app.route("/patient")
+def patient():
+    return render_template('patient.html')
 
 if __name__ == "__main__":
     app.run(debug=False)

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/gif/png" href="/static/images/icon.png">
+    <link rel="stylesheet" href="/static/css/utils.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/mobile.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Sakkare | Patient</title>
+  </head>
+
+  <body>
+    <nav class="navigation max-width-1 m-auto">
+      <div class="nav-left">
+        <a href="/">
+          <span><img src="/static/images/logo.jpg" width="94px" alt="" /></span>
+        </a>
+        <div class="navbar">
+          <a href="/patient">Dashboard</a>
+          <a href="/contact">Contact</a>
+          <div class="dropdown">
+            <button class="dropbtn">Profile
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Manage Profile</a>
+              <a href="/logout">Sign Out</a>
+            </div>
+          </div> 
+        </div>
+        
+        <!-- <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><select name="cars" id="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select></li>
+          <li><a href="/login"><u><b>DM</b></u></a></li>
+        
+        <li><a href="/register">Register</a></li>
+        </ul> -->
+      </div>
+      <div class="nav-right">
+        
+        <form action="/search" method="get">
+          <input
+            class="form-input"
+            type="text"
+            name="query"
+            placeholder="Search"
+          />
+          <button class="btn">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div class="max-width-1 m-auto">
+        <hr />
+    </div>
+    <div class="m-auto max-width-1 my-2">
+      <div class="card">
+        <img src="/static/images/patient-img.png" alt="John" style="width:70%">
+        <h1>Mr Ramaswamy</h1>
+        <p class="title">CEO & Founder, Expert Business</p><br>
+        <p style="font-size: 20px;">Age : 69</p>
+        <p style="font-size: 20px;">Gender  : Male</p>
+        <p style="font-size: 20px;">Diabetes : Type 2</p>
+        <p style="font-size: 20px;">Morbidities : None</p> <br><br>
+        <a href="#"><i class="fa fa-dribbble"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+      </div>    
+    </div>
+    <table id="customers">
+      <tr>
+        <th>Time</th>
+        <th>Glucose Level</th>
+        <th>Condition</th>
+      </tr>
+      <tr>
+        <td>23-May-2021 09:30:00</td>
+        <td>98</td>
+        <td>Normal</td>
+      </tr>
+      <tr>
+        <td>23-May-2021 13:30:00</td>
+        <td>162</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>23-May-2021 18:30:00</td>
+        <td>113</td>
+        <td>Normal</td>
+      </tr>
+      <tr>
+        <td>23-May-2021 21:30:00</td>
+        <td>157</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>24-May-2021 09:30:00</td>
+        <td>112</td>
+        <td>Normal</td>
+      </tr>
+      <tr>
+        <td>24-May-2021 13:30:00</td>
+        <td>158</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>24-May-2021 18:30:00</td>
+        <td>122</td>
+        <td>Normal</td>
+      </tr>
+      <tr>
+        <td>24-May-2021 21:30:00</td>
+        <td>153</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>25-May-2021 09:30:00</td>
+        <td>108</td>
+        <td>Normal</td>
+      </tr>
+      <tr>
+        <td>25-May-2021 13:30:00</td>
+        <td>172</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>25-May-2021 18:30:00</td>
+        <td>134</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>25-May-2021 21:30:00</td>
+        <td>147</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>26-May-2021 09:30:00</td>
+        <td>106</td>
+        <td>Normal</td>
+      </tr>
+      <tr>
+        <td>26-May-2021 13:30:00</td>
+        <td>168</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>26-May-2021 18:30:00</td>
+        <td>127</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>26-May-2021 21:30:00</td>
+        <td>152</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>27-May-2021 09:30:00</td>
+        <td>102</td>
+        <td>Normal</td>
+      </tr>
+      <tr>
+        <td>27-May-2021 13:30:00</td>
+        <td>161</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>27-May-2021 18:30:00</td>
+        <td>123</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>27-May-2021 21:30:00</td>
+        <td>147</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>28-May-2021 09:30:00</td>
+        <td>99</td>
+        <td>Normal</td>
+      </tr>
+      <tr>
+        <td>28-May-2021 13:30:00</td>
+        <td>158</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>28-May-2021 18:30:00</td>
+        <td>122</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>28-May-2021 21:30:00</td>
+        <td>150</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>29-May-2021 09:30:00</td>
+        <td>108</td>
+        <td>Normal</td>
+      </tr>
+      <tr>
+        <td>29-May-2021 13:30:00</td>
+        <td>172</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>29-May-2021 18:30:00</td>
+        <td>134</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>29-May-2021 21:30:00</td>
+        <td>147</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>30-May-2021 09:30:00</td>
+        <td>108</td>
+        <td>Normal</td>
+      </tr>
+      <tr>
+        <td>30-May-2021 13:30:00</td>
+        <td>172</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>30-May-2021 18:30:00</td>
+        <td>134</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>30-May-2021 21:30:00</td>
+        <td>147</td>
+        <td>Moderate</td>
+      </tr>
+
+    </table> <br><br><br>
+    <img style="margin-left: 20%;" src="/static/images/chart.JPG" width="60%">
+
+    <div class="footer">
+      <p>Copyright &copy; sakkare.com</p>
+      
+    </div>
+  </body>
+</html>

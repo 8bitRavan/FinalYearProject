@@ -15,7 +15,7 @@ float temperatureData;
 const char* ssid = "akshay";
 //password of your WPA Network
 const char* password = "alskdjfhg";
-char server[] = "192.168.43.242";
+char server[] = "192.168.43.242"; //apache server address
 WiFiClient client; 
 
 /* Setup for Ethernet and RFID */
