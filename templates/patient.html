@@ -30,21 +30,6 @@
             </div>
           </div> 
         </div>
-        
-        <!-- <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><select name="cars" id="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select></li>
-          <li><a href="/login"><u><b>DM</b></u></a></li>
-        
-        <li><a href="/register">Register</a></li>
-        </ul> -->
       </div>
       <div class="nav-right">
         
@@ -63,10 +48,11 @@
         <hr />
     </div>
     <div class="m-auto max-width-1 my-2">
+      {{ msg }}
       <div class="card">
         <img src="/static/images/patient-img.png" alt="John" style="width:70%">
         <h1>Mr Ramaswamy</h1>
-        <p class="title">CEO & Founder, Expert Business</p><br>
+        <p class="title">Retd. Product Manager</p><br>
         <p style="font-size: 20px;">Age : 69</p>
         <p style="font-size: 20px;">Gender  : Male</p>
         <p style="font-size: 20px;">Diabetes : Type 2</p>
@@ -78,174 +64,31 @@
       </div>    
     </div>
     <table id="customers">
+      <thead>
       <tr>
         <th>Time</th>
         <th>Glucose Level</th>
         <th>Condition</th>
       </tr>
-      <tr>
-        <td>23-May-2021 09:30:00</td>
-        <td>98</td>
-        <td>Normal</td>
-      </tr>
-      <tr>
-        <td>23-May-2021 13:30:00</td>
-        <td>162</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>23-May-2021 18:30:00</td>
-        <td>113</td>
-        <td>Normal</td>
-      </tr>
-      <tr>
-        <td>23-May-2021 21:30:00</td>
-        <td>157</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>24-May-2021 09:30:00</td>
-        <td>112</td>
-        <td>Normal</td>
-      </tr>
-      <tr>
-        <td>24-May-2021 13:30:00</td>
-        <td>158</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>24-May-2021 18:30:00</td>
-        <td>122</td>
-        <td>Normal</td>
-      </tr>
-      <tr>
-        <td>24-May-2021 21:30:00</td>
-        <td>153</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>25-May-2021 09:30:00</td>
-        <td>108</td>
-        <td>Normal</td>
-      </tr>
-      <tr>
-        <td>25-May-2021 13:30:00</td>
-        <td>172</td>
-        <td>High</td>
-      </tr>
-      <tr>
-        <td>25-May-2021 18:30:00</td>
-        <td>134</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>25-May-2021 21:30:00</td>
-        <td>147</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>26-May-2021 09:30:00</td>
-        <td>106</td>
-        <td>Normal</td>
-      </tr>
-      <tr>
-        <td>26-May-2021 13:30:00</td>
-        <td>168</td>
-        <td>High</td>
-      </tr>
-      <tr>
-        <td>26-May-2021 18:30:00</td>
-        <td>127</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>26-May-2021 21:30:00</td>
-        <td>152</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>27-May-2021 09:30:00</td>
-        <td>102</td>
-        <td>Normal</td>
-      </tr>
-      <tr>
-        <td>27-May-2021 13:30:00</td>
-        <td>161</td>
-        <td>High</td>
-      </tr>
-      <tr>
-        <td>27-May-2021 18:30:00</td>
-        <td>123</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>27-May-2021 21:30:00</td>
-        <td>147</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>28-May-2021 09:30:00</td>
-        <td>99</td>
-        <td>Normal</td>
-      </tr>
-      <tr>
-        <td>28-May-2021 13:30:00</td>
-        <td>158</td>
-        <td>High</td>
-      </tr>
-      <tr>
-        <td>28-May-2021 18:30:00</td>
-        <td>122</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>28-May-2021 21:30:00</td>
-        <td>150</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>29-May-2021 09:30:00</td>
-        <td>108</td>
-        <td>Normal</td>
-      </tr>
-      <tr>
-        <td>29-May-2021 13:30:00</td>
-        <td>172</td>
-        <td>High</td>
-      </tr>
-      <tr>
-        <td>29-May-2021 18:30:00</td>
-        <td>134</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>29-May-2021 21:30:00</td>
-        <td>147</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>30-May-2021 09:30:00</td>
-        <td>108</td>
-        <td>Normal</td>
-      </tr>
-      <tr>
-        <td>30-May-2021 13:30:00</td>
-        <td>172</td>
-        <td>High</td>
-      </tr>
-      <tr>
-        <td>30-May-2021 18:30:00</td>
-        <td>134</td>
-        <td>Moderate</td>
-      </tr>
-      <tr>
-        <td>30-May-2021 21:30:00</td>
-        <td>147</td>
-        <td>Moderate</td>
-      </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}    
+        <tr>
+            <td>{{row[0]}}</td>
+            <td>{{row[3]}}</td>
+            {% if float(row[3])<=120 %}
+            <td>Normal</td>
+            {% elif float(row[3])<=155 %}
+            <td>Moderate</td>
+            {% else %}
+            <td>High</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
 
     </table> <br><br><br>
-    <img style="margin-left: 20%;" src="/static/images/chart.JPG" width="60%">
+    <img style="margin-left: 20%;" src="{{ url_for('graph') }}" alt="Glucose Level Graph" width="60%">
 
     <div class="footer">
       <p>Copyright &copy; sakkare.com</p>

@@ -1,5 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, Response
 from flask_mysqldb import MySQL
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
+import io
 #import MySQLdb.cursors
 import re
 import os
@@ -47,7 +50,7 @@ def login():
             if doctor:
                 msg = msg[:34]+'Dr. '+msg[34:]
                 return render_template('doctor.html', msg=msg)
-            return render_template('patient.html', msg=msg)  # return to patient/doctor .html
+            return redirect(url_for('patient', msg=msg))  # return to patient/doctor .html
         else:
             msg = 'Incorrect username / password / Account Type !'
     return render_template('login.html', msg=msg)
@@ -113,9 +116,25 @@ def search():
         msg = "You have searched for "+ result
     return render_template('search.html',msg=msg)
 
-@app.route("/patient")
+@app.route("/patient",methods=['GET', 'POST'])
 def patient():
-    return render_template('patient.html')
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM patientData')
+    data = cur.fetchall()
+    return render_template('patient.html',data=data,float=float)
+@app.route("/graph")
+def graph():
+    fig = Figure()
+    axis = fig.add_subplot(1, 1, 1)
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM patientData')
+    data = cur.fetchall()
+    xs = [row[0] for row in data]
+    ys = [float(row[3]) for row in data]
+    axis.plot(xs,ys)
+    output = io.BytesIO()
+    FigureCanvas(fig).print_png(output)
+    return Response(output.getvalue(), mimetype='image/png')
 
 if __name__ == "__main__":
     app.run(debug=False)
