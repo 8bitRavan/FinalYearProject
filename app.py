@@ -45,8 +45,10 @@ def login():
         if account:
             session['loggedin'] = True
             session['id'] = account[0]
-            session['email'] = account[2]
+            session['email'] = account[3]
             msg = 'Logged in successfully !\nWelcome, '+account[1]
+            if account[3] == 'ramsiyer129@gmail.com':
+                return render_template('patient1.html')
             if doctor:
                 msg = msg[:34]+'Dr. '+msg[34:]
                 return render_template('doctor.html', msg=msg)
@@ -122,6 +124,9 @@ def patient():
     cur.execute('SELECT * FROM patientData ORDER BY time DESC LIMIT 24')
     data = cur.fetchall()
     return render_template('patient.html',data=data,float=float)
+@app.route("/patient1")
+def patient1():
+    return render_template("patient1.html")
 @app.route("/graph")
 def graph():
     fig = Figure()
@@ -135,6 +140,7 @@ def graph():
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
     return Response(output.getvalue(), mimetype='image/png')
+
 @app.route("/patient/report")
 def patient_report():
     cur = mysql.connection.cursor()
