@@ -50,7 +50,7 @@ def login():
             if doctor:
                 msg = msg[:34]+'Dr. '+msg[34:]
                 return render_template('doctor.html', msg=msg)
-            return redirect(url_for('patient', msg=msg))  # return to patient/doctor .html
+            return redirect(url_for('patient'))  # return to patient/doctor .html
         else:
             msg = 'Incorrect username / password / Account Type !'
     return render_template('login.html', msg=msg)
@@ -119,7 +119,7 @@ def search():
 @app.route("/patient",methods=['GET', 'POST'])
 def patient():
     cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM patientData')
+    cur.execute('SELECT * FROM patientData ORDER BY time DESC')
     data = cur.fetchall()
     return render_template('patient.html',data=data,float=float)
 @app.route("/graph")
