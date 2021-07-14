@@ -119,7 +119,7 @@ def search():
 @app.route("/patient",methods=['GET', 'POST'])
 def patient():
     cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM patientData ORDER BY time DESC')
+    cur.execute('SELECT * FROM patientData ORDER BY time DESC LIMIT 24')
     data = cur.fetchall()
     return render_template('patient.html',data=data,float=float)
 @app.route("/graph")
@@ -127,7 +127,7 @@ def graph():
     fig = Figure()
     axis = fig.add_subplot(1, 1, 1)
     cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM patientData')
+    cur.execute('SELECT * FROM (SELECT * FROM patientData ORDER BY time DESC LIMIT 12)Var1 ORDER BY time ASC')
     data = cur.fetchall()
     xs = [row[0] for row in data]
     ys = [float(row[3]) for row in data]
@@ -135,6 +135,12 @@ def graph():
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
     return Response(output.getvalue(), mimetype='image/png')
+@app.route("/patient/report")
+def patient_report():
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM patientData ORDER BY time DESC')
+    data = cur.fetchall()
+    return render_template('patientReport.html',data=data,float=float)
 
 if __name__ == "__main__":
     app.run(debug=False)
