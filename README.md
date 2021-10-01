@@ -1,4 +1,4 @@
-<h3><em>Sugar Safe</em></h3>
+<h3><b>Sugar Safe</b></h3>
 
 <a href="https://sugar-safe.herokuapp.com/"> Deployed Website </a>
 <hr>
